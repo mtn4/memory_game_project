@@ -1,0 +1,248 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 18px;
+  font-weight: 500;
+}
+#landing-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 150px;
+  background: rgb(34, 193, 195);
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
+  );
+}
+#landing-page > p {
+  font-family: "Oleo Script Swash Caps", cursive;
+  font-size: 8vw;
+  font-weight: 700;
+  color: midnightblue;
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+.game-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgb(34, 193, 195);
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
+  );
+}
+.game-container__dark {
+  background: rgb(254, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(254, 0, 0, 1) 0%,
+    rgba(25, 0, 255, 1) 100%
+  );
+}
+.landing-page__btn {
+  height: 150px;
+  width: 250px;
+  border: none;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.6);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 20px;
+}
+.landing-page__btn::before {
+  content: "";
+  height: 200%;
+  width: 150%;
+  position: absolute;
+  background: conic-gradient(
+    #fd004c,
+    #fe9000,
+    #fff020,
+    #3edf4b,
+    #3363ff,
+    #b102b7,
+    #fd004c
+  );
+  left: -25%;
+  top: -50%;
+  animation: spin 1.5s infinite linear;
+}
+.landing-page__btn::after {
+  font-family: "Oleo Script Swash Caps", cursive;
+  content: "Play Now!";
+  position: absolute;
+  background-color: #1c1b29;
+  height: 93%;
+  width: 93%;
+  top: 3.5%;
+  left: 3.5%;
+  border-radius: 20px;
+  color: #ffffff;
+  font-size: 26px;
+  letter-spacing: 6px;
+  display: grid;
+  place-items: center;
+  transition: all 0.3s ease-in-out;
+}
+@keyframes spin {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+.landing-page__btn:hover::after {
+  background-color: powderblue;
+  font-size: 32px;
+  color: black;
+}
+.tool-bar {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  justify-content: space-between;
+}
+.game-board {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 20px;
+}
+.card {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  cursor: pointer;
+}
+.card-front,
+.card-back {
+  position: absolute;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  background: white;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.6);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  backface-visibility: hidden;
+}
+
+.card-front__dark {
+  background: black;
+}
+.card-back {
+  transform: rotateY(180deg) rotateZ(50deg);
+}
+
+.card.flipped .card-front {
+  transform: rotateY(180deg) rotateZ(50deg);
+}
+
+.card.flipped .card-back {
+  transform: rotateY(0) rotateZ(0);
+}
+.blue {
+  background-color: blue;
+}
+.green {
+  background-color: green;
+}
+.red {
+  background-color: red;
+}
+.yellow {
+  background-color: yellow;
+}
+.orange {
+  background-color: orange;
+}
+.purple {
+  background-color: purple;
+}
+#overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+#won-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  position: relative;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  margin-top: 100px;
+  color: white;
+}
+#won-page > p {
+  font-family: "Oleo Script Swash Caps", cursive;
+  font-size: 8vw;
+  font-weight: 700;
+  color: #3edf4b;
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+#won-page > div {
+  font-family: "Oleo Script Swash Caps", cursive;
+  font-size: 3vw;
+  font-weight: 700;
+  color: #3edf4b;
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+.display-none {
+  display: none !important;
+}
+.won-page__btn::after {
+  content: "Play Again!";
+}
+
+#theme {
+  font-family: "Roboto", sans-serif;
+  width: 130px;
+  height: 80px;
+  background-color: darkkhaki;
+  border: 2px solid black;
+}
+
+@media (orientation: portrait) {
+  #landing-page > p {
+    font-size: 14vw;
+  }
+  #won-page > p {
+    font-size: 14vw;
+  }
+  #won-page > div {
+    font-size: 10vw;
+  }
+  .card {
+    width: 90px;
+    height: 90px;
+  }
+  #theme {
+    width: 100px;
+    height: 60px;
+  }
+  .tool-bar {
+    gap: 10px;
+  }
+  #won-page {
+    margin-top: 10px;
+  }
+}

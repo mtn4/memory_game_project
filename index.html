@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@700&family=Roboto:wght@100;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/style.css" />
+    <title>Memory Game Project</title>
+  </head>
+  <body>
+    <div id="landing-page">
+      <p>Memory Game</p>
+      <button class="landing-page__btn"></button>
+    </div>
+    <div class="game-container display-none">
+      <div id="overlay">
+        <div id="won-page">
+          <p>You Won!</p>
+          <div class="moves-end"></div>
+          <div class="timer-end"></div>
+          <button class="landing-page__btn won-page__btn"></button>
+        </div>
+      </div>
+
+      <div class="tool-bar">
+        <div class="stats">
+          <div class="moves">Total Moves: 0</div>
+          <div class="timer">Time Elapsed: 0 Seconds</div>
+        </div>
+        <button id="theme">Dark Mode</button>
+      </div>
+      <div class="game-board"></div>
+    </div>
+  </body>
+  <script src="./assets/script.js"></script>
+</html>
