@@ -10,9 +10,11 @@ const wonBtn = document.querySelector(".won-page__btn");
 const moveCounterEnd = document.querySelector(".moves-end");
 const timerEnd = document.querySelector(".timer-end");
 const themeButton = document.getElementById("theme");
+const radioButtons = document.querySelectorAll('input[name="difficulty"]');
 
 const gameObj = {
   gameStarted: false,
+  difficulty: 6,
   flippedCards: 0,
   totalFlips: 0,
   totalTime: 0,
@@ -23,6 +25,19 @@ landingBtn.addEventListener("click", () => {
   landingPage.classList.toggle("display-none");
   container.classList.toggle("display-none");
   gameObj.gameStarted = true;
+  for (let i = 0; i < 3; i++) {
+    if (radioButtons[i].checked) {
+      if (i === 1) {
+        gameBoard.classList.add("game-board__medium");
+        gameObj.difficulty = 9;
+      }
+      if (i === 2) {
+        gameBoard.classList.add("game-board__hard");
+        gameObj.difficulty = 12;
+      }
+      break;
+    }
+  }
   gameObj.loop = setInterval(() => {
     gameObj.totalTime++;
     moveCounter.innerText = `Total Moves: ${gameObj.totalFlips}`;
@@ -67,10 +82,32 @@ const randomizeArray = (arr) => {
   }
   return newArr;
 };
-
+const pickNumItems = (arr, num) => {
+  let newArr = [];
+  while (newArr.length < num) {
+    let rand = getRandomInt(0, arr.length);
+    newArr.push(arr[rand]);
+    arr.splice(rand, 1);
+  }
+  return newArr;
+};
 const drawBoard = () => {
-  const colors = ["blue", "green", "red", "yellow", "orange", "purple"];
-  const items = randomizeArray([...colors, ...colors]);
+  const colors = [
+    "blue",
+    "green",
+    "red",
+    "yellow",
+    "orange",
+    "purple",
+    "cyan",
+    "magenta",
+    "silver",
+    "brown",
+    "pink",
+    "teal",
+  ];
+  const pickColorsPerDiff = pickNumItems(colors, gameObj.difficulty);
+  const items = randomizeArray([...pickColorsPerDiff, ...pickColorsPerDiff]);
   for (let i = 0; i < items.length; i++) {
     const cardElement = document.createElement("div");
     cardElement.classList.add("card");

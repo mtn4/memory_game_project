@@ -11,7 +11,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 150px;
+  gap: 100px;
   background: rgb(34, 193, 195);
   background: linear-gradient(
     0deg,
@@ -19,11 +19,18 @@
     rgba(253, 187, 45, 1) 100%
   );
 }
-#landing-page > p {
+#landing-page > h1 {
   font-family: "Oleo Script Swash Caps", cursive;
   font-size: 8vw;
   font-weight: 700;
   color: midnightblue;
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+#landing-page > h6 {
+  font-family: "Oleo Script Swash Caps", cursive;
+  font-size: 3vw;
+  font-weight: 700;
+  color: darkslateblue;
   text-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
 }
 
@@ -39,6 +46,8 @@
     rgba(34, 193, 195, 1) 0%,
     rgba(253, 187, 45, 1) 100%
   );
+  width: 100%;
+  overflow: hidden;
 }
 .game-container__dark {
   background: rgb(254, 0, 0);
@@ -116,11 +125,32 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(4, 1fr);
   gap: 20px;
+  height: fit-content;
+  align-items: center;
+  justify-items: center;
+  width: 95%;
+  height: calc(100% - 100px);
+  max-height: 800px;
+  max-width: 500px;
+}
+.game-board__medium {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  max-height: 1000px;
+}
+.game-board__hard {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  max-height: 1000px;
 }
 .card {
   position: relative;
-  width: 160px;
-  height: 160px;
+  width: 100%;
+  height: 100%;
+  min-width: 50px;
+  min-height: 20px;
+  max-width: 150px;
+  max-height: 150px;
   cursor: pointer;
 }
 .card-front,
@@ -166,6 +196,24 @@
 }
 .purple {
   background-color: purple;
+}
+.cyan {
+  background-color: cyan;
+}
+.magenta {
+  background-color: magenta;
+}
+.silver {
+  background-color: silver;
+}
+.brown {
+  background-color: brown;
+}
+.pink {
+  background-color: pink;
+}
+.teal {
+  background-color: teal;
 }
 #overlay {
   height: 100%;
@@ -221,9 +269,31 @@
   border: 2px solid black;
 }
 
+input[type="radio"] {
+  visibility: hidden;
+  height: 0;
+  width: 0;
+}
+label {
+  font-family: "Roboto", sans-serif;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 5px;
+}
+input[type="radio"]:checked + label {
+  background-color: midnightblue;
+}
+
 @media (orientation: portrait) {
-  #landing-page > p {
+  #landing-page > h1 {
     font-size: 14vw;
+  }
+  #landing-page > h6 {
+    font-size: 8vw;
   }
   #won-page > p {
     font-size: 14vw;
@@ -231,18 +301,22 @@
   #won-page > div {
     font-size: 10vw;
   }
-  .card {
-    width: 90px;
-    height: 90px;
-  }
   #theme {
     width: 100px;
     height: 60px;
   }
   .tool-bar {
+    height: 60px;
     gap: 10px;
   }
   #won-page {
     margin-top: 10px;
+  }
+  .game-container {
+    justify-content: normal;
+    gap: 20px;
+  }
+  .game-board {
+    margin-top: 0;
   }
 }
