@@ -91,6 +91,17 @@ const pickNumItems = (arr, num) => {
   }
   return newArr;
 };
+
+function randLetter() {
+  const letters = "abcdefghijklmnopqrstuvwxyz".split("");
+  return letters[getRandomInt(0, letters.length)];
+}
+
+let randLettersCall = setInterval(() => {
+  let cards = document.querySelectorAll(".letter");
+  cards.forEach((card) => (card.innerText = randLetter()));
+}, 500);
+
 const drawBoard = () => {
   const colors = [
     "blue",
@@ -113,6 +124,7 @@ const drawBoard = () => {
     cardElement.classList.add("card");
     const cardFront = document.createElement("div");
     cardFront.classList.add("card-front");
+    cardFront.classList.add("letter");
     const cardBack = document.createElement("div");
     cardBack.classList.add("card-back", items[i]);
     cardElement.appendChild(cardFront);
