@@ -113,6 +113,7 @@ const drawBoard = () => {
     cardElement.classList.add("card");
     const cardFront = document.createElement("div");
     cardFront.classList.add("card-front");
+    cardFront.classList.add("letter");
     const cardBack = document.createElement("div");
     cardBack.classList.add("card-back", items[i]);
     cardElement.appendChild(cardFront);
