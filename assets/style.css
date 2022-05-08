@@ -288,12 +288,6 @@ input[type="radio"]:checked + label {
   background-color: midnightblue;
 }
 
-.letter{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 @media (orientation: portrait) {
   #landing-page > h1 {
     font-size: 14vw;
